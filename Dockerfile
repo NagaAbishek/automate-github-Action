@@ -4,6 +4,9 @@ FROM python:3.8-slim
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
+# Install boto3 for AWS interactions
+RUN pip install boto3
+
 # Copy the current directory contents into the container at /usr/src/app
 COPY . .
 
@@ -16,4 +19,5 @@ USER myuser
 
 # Run test_batch.py when the container launches
 CMD ["python", "./test_batch.py"]
+
 
